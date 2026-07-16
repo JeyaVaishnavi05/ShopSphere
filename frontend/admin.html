@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+  <script>
+
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+
+window.location.href = "admin-login.html";
+
+}
+
+</script>
+<header class="navbar">
+
+<div class="logo">ShopSphere</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cart.html">Cart 🛒</a>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">
+🌙
+</button>
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+<h2>Admin Panel</h2>
+
+<a href="admin-dashboard.html">Dashboard</a>
+<a href="admin.html">Products</a>
+<a href="admin-orders.html">Orders</a>
+<a href="index.html">Store</a>
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+<h1>Product Management</h1>
+
+<div class="product-form">
+
+<h2>Add Product</h2>
+
+<input type="text" id="name" placeholder="Product Name">
+<input type="number" id="price" placeholder="Price">
+<input type="text" id="category" placeholder="Category">
+<input type="text" id="image" placeholder="Image name (example: watch.jpg)">
+
+<button onclick="addProduct()">Add Product</button>
+
+</div>
+
+
+<h2>Product List</h2>
+
+<input
+  type="text"
+  id="search"
+  placeholder="Search products..."
+  onkeyup="searchProducts()"
+  class="search-box"
+/>
+
+<div id="product-list"></div>
+
+</div>
+
+</div>
+
+
+<!-- EDIT PRODUCT MODAL -->
+
+<div id="editModal" class="modal">
+
+<div class="modal-content">
+
+<h2>Edit Product</h2>
+
+<input type="hidden" id="edit-id">
+
+<input type="text" id="edit-name" placeholder="Product Name">
+<input type="number" id="edit-price" placeholder="Price">
+<input type="text" id="edit-category" placeholder="Category">
+<input type="text" id="edit-image" placeholder="Image name">
+
+<button onclick="updateProduct()">Update Product</button>
+<button onclick="closeModal()">Cancel</button>
+
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+}
+
+/* Load saved theme when page loads */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  }
+});
+</script>
+</body>
+<footer class="footer">
+
+<p>© 2026 ShopSphere. All rights reserved.</p>
+
+</footer>
+</html>

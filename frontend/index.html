@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce Store</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/theme.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">ShopSphere</div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterCategory()">
+  </div>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">
+    🌙
+  </button>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart 🛒</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+</header>
+
+
+<main class="layout">
+
+  <!-- Sidebar Filter -->
+  <aside class="sidebar">
+  <h3 class="sidebar-title">Filters</h3>
+
+  <!-- Category Filter -->
+  <div class="filter-group">
+    <label>Category</label>
+    <select id="categoryFilter" onchange="filterCategory()">
+      <option value="">All</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home</option>
+    </select>
+  </div>
+
+  <!-- Price Filter -->
+  <div class="filter-group">
+    <label>Price Range</label>
+    <div class="price-inputs">
+      <input type="number" id="minPrice" placeholder="Min">
+      <input type="number" id="maxPrice" placeholder="Max">
+    </div>
+    <button class="price-btn" onclick="filterCategory()">Apply</button>
+  </div>
+
+  <div class="filter-group">
+  <label>Sort By</label>
+  <select id="sortOption" onchange="filterCategory()">
+    <option value="">Default</option>
+    <option value="priceLow">Price: Low to High</option>
+    <option value="priceHigh">Price: High to Low</option>
+    <option value="nameAZ">Name: A to Z</option>
+    <option value="nameZA">Name: Z to A</option>
+  </select>
+</div>
+
+</aside>
+
+
+
+  <!-- Product Section -->
+  <section class="product-section">
+    <h2>Featured Products</h2>
+    <div id="product-list" class="products"></div>
+
+    <h2 class="section-title">Recommended for You</h2>
+    <div id="recommendations" class="products"></div>
+  </section>
+
+</main>
+
+
+  <script src="script.js"></script>
+<footer class="footer">
+
+<p>© 2026 ShopSphere. All rights reserved.</p>
+
+</footer>
+</body>
+
+</html>

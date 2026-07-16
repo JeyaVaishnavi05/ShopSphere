@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+<script>
+
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+
+window.location.href = "admin-login.html";
+
+}
+
+</script>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="logo">ShopSphere</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="cart.html">Cart 🛒</a>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+</nav>
+
+</header>
+
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>Admin Panel</h2>
+
+<a href="admin-dashboard.html">Dashboard</a>
+<a href="admin.html">Products</a>
+<a href="admin-orders.html">Orders</a>
+<a href="index.html">Store</a>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+<h1>Dashboard</h1>
+
+<div class="stats">
+
+<div class="card">
+<h3>Products</h3>
+<p id="totalProducts">0</p>
+</div>
+
+<div class="card">
+<h3>Orders</h3>
+<p id="totalOrders">0</p>
+</div>
+
+<div class="card">
+<h3>Customers</h3>
+<p id="totalCustomers">0</p>
+</div>
+
+<div class="card">
+<h3>Revenue</h3>
+<p>₹<span id="revenue">0</span></p>
+</div>
+
+</div>
+
+
+<div class="chart-box">
+<canvas id="salesChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+<p>© 2026 ShopSmart. All rights reserved.</p>
+</footer>
+
+
+<script src="dashboard.js"></script>
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+}
+
+/* Load saved theme when page loads */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orders</title>
+
+
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+<script>
+
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+
+window.location.href = "admin-login.html";
+
+}
+
+</script>
+<header class="navbar">
+
+<div class="logo">ShopSphere</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cart.html">Cart 🛒</a>
+
+<button class="dark-toggle" onclick="toggleDarkMode()">
+🌙
+</button>
+
+</nav>
+
+</header>
+<div class="container">
+
+<div class="sidebar">
+<h2>Admin Panel</h2>
+
+<a href="admin-dashboard.html">Dashboard</a>
+<a href="admin.html">Products</a>
+<a href="admin-orders.html">Orders</a>
+<a href="index.html">Store</a>
+
+</div>
+
+
+<div class="main">
+
+<h1>Orders</h1>
+
+<table border="1" width="100%">
+
+<thead>
+<tr>
+<th>Customer</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Address</th>
+<th>Products</th>
+<th>Total</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody id="ordersTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="adminOrders.js"></script>
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+}
+
+/* Load saved theme when page loads */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  }
+});
+</script>
+</body>
+<footer class="footer">
+
+<p>© 2026 ShopSphere. All rights reserved.</p>
+
+</footer>
+</html>

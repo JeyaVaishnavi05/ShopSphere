@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Cart</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/theme.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">ShopSphere</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart 🛒</a>
+
+    <!-- Dark Mode Button -->
+    <button onclick="toggleDarkMode()" class="dark-btn">🌙</button>
+  </nav>
+</header>
+
+<main class="cart-container">
+
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+
+<h3>Total: ₹<span id="total">0</span></h3>
+
+<button class="checkout-btn" onclick="goCheckout()">
+Proceed to Checkout
+</button>
+
+</main>
+
+<script src="cart.js"></script>
+
+</body>
+<footer class="footer">
+
+<p>© 2026 ShopSphere. All rights reserved.</p>
+
+</footer>
+</html>
