@@ -1,6 +1,3 @@
-# ShopSphere
-ShopSphere is a full-stack e-commerce platform featuring dynamic product management with MongoDB, secure cart and checkout functionality, an admin dashboard, sales analytics, and a responsive dark-mode interface.
-
 # 🛒 ShopSphere – Dynamic E-Commerce Platform
 
 ShopSphere is a modern e-commerce web application designed to simulate a real-world online shopping experience. The platform allows users to browse products, manage their shopping cart, and complete the checkout process, while providing an admin dashboard for efficient product management and store operations.
